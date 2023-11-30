@@ -3,13 +3,19 @@ import LayoutHeaderUI from "./index.presenter";
 
 export default function LayoutHeader(): JSX.Element {
   const [popupActive, setPopupActive] = useState(false);
+  const [index, setIndex] = useState<number>(0);
 
-  const onClickPopup = (): void => {
+  const onClickPopup = (button: number) => (): void => {
     setPopupActive(!popupActive);
-    console.log(popupActive);
+    setIndex(button);
+    console.log("현재 index는" + index);
   };
 
   return (
-    <LayoutHeaderUI popupActive={popupActive} onClickPopup={onClickPopup} />
+    <LayoutHeaderUI
+      index={index}
+      popupActive={popupActive}
+      onClickPopup={onClickPopup}
+    />
   );
 }
