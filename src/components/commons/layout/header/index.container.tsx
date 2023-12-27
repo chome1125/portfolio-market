@@ -14,8 +14,9 @@ export default function LayoutHeader(): JSX.Element {
   return (
     <LayoutHeaderUI
       index={index}
-      popupActive={popupActive}
       onClickPopup={onClickPopup}
+      popupActive={popupActive}
+      setPopupActive={setPopupActive}
     />
   );
 }

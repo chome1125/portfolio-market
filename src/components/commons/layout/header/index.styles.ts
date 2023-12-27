@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Commons } from "../../../../commons/styles/color";
 
 export const Wrapper = styled.section`
   height: 152px;
@@ -48,7 +49,7 @@ export const Button_Login = styled.li`
 export const Button_Signup = styled.li`
   margin-left: 20px;
   padding: 10px 16px;
-  background: yellow;
+  background: ${Commons.colors.yellow};
   border-radius: 10px;
   cursor: pointer;
 `;

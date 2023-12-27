@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { NextRouter } from "next/router";
+import { Commons } from "../../../../commons/styles/color";
 
 interface ButtonProps {
   router: NextRouter;
@@ -7,7 +8,7 @@ interface ButtonProps {
 
 export const Wrapper = styled.div`
   height: 64px;
-  background: #ffd600;
+  background: ${Commons.colors.yellow};
 `;
 
 export const Inner = styled.div`

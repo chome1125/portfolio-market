@@ -1,10 +1,24 @@
-import { register } from "module";
 import * as S from "./index.styles";
+import {
+  UseFormReturn,
+  UseFormStateReturn,
+  UseFormHandleSubmit,
+} from "react-hook-form";
+
+interface MyFormData {
+  email: string;
+  name: string;
+  password: string;
+}
 
 interface Iprops {
-  popupActive: boolean;
   index: number;
+  popupActive: boolean;
   onClickPopup: (index: number) => () => void;
+  register: UseFormReturn<MyFormData>["register"];
+  handleSubmit: UseFormHandleSubmit<MyFormData>;
+  formState: UseFormStateReturn<MyFormData>;
+  onClickCreateUser: () => void;
 }
 
 export default function PopupLoginUI(props: Iprops): JSX.Element {
@@ -19,20 +33,29 @@ export default function PopupLoginUI(props: Iprops): JSX.Element {
           <S.Email>
             이메일
             <br />
-            <S.Input_Email type="text" {...register("email")} />
+            <S.Input_Email type="text" {...props.register("email")} />
+            <S.Error_message>
+              {props.formState.errors.email?.message}
+            </S.Error_message>
           </S.Email>
 
           <S.Password>
             비밀번호
             <br />
-            <S.Input_password type="password" {...register("password1")} />
+            <S.Input_password type="password" {...props.register("password")} />
+            <S.Error_message>
+              {props.formState.errors.password?.message}
+            </S.Error_message>
           </S.Password>
 
           {props.index == 2 && (
             <S.Password2>
-              2차 비밀번호
+              닉네임
               <br />
-              <S.Input_password2 type="password" {...register("password2")} />
+              <S.Input_password2 type="text" {...props.register("name")} />
+              <S.Error_message>
+                {props.formState.errors.name?.message}
+              </S.Error_message>
             </S.Password2>
           )}
 
@@ -41,7 +64,7 @@ export default function PopupLoginUI(props: Iprops): JSX.Element {
 
         <S.Button_wrapper>
           <S.Button_close onClick={props.onClickPopup(0)}>닫기</S.Button_close>
-          <S.Button_send>전송</S.Button_send>
+          <S.Button_send onClick={props.onClickCreateUser}>생성</S.Button_send>
         </S.Button_wrapper>
       </S.Popup_wrapper>
     </S.Popup>

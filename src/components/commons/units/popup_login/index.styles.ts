@@ -7,12 +7,13 @@ export const Popup = styled.div<{ popupActive: boolean }>`
   height: 100vh;
   background-color: white;
   backdrop-filter: blur(10px);
+  font-size: 18px;
 `;
 
 export const Popup_wrapper = styled.div`
   position: fixed;
   z-index: 999;
-  top: 30%;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
   background: white;
@@ -35,25 +36,31 @@ export const Input_wrapper = styled.div`
   input {
     width: 100%;
     padding: 6px;
-    margin-top: 8px;
   }
 `;
 
-export const Email = styled.div``;
-
-export const Password = styled.div``;
-export const Password2 = styled.div``;
-
-export const Input_Email = styled.input`
-  margin-bottom: 10px;
+export const Email = styled.div`
+  margin-bottom: 22px;
 `;
+
+export const Password = styled.div`
+  margin-bottom: 22px;
+`;
+
+export const Password2 = styled.div`
+  margin-bottom: 22px;
+`;
+
+export const Input_Email = styled.input``;
 
 export const Input_password = styled.input``;
 export const Input_password2 = styled.input``;
-export const Error_message = styled.div``;
+export const Error_message = styled.div`
+  color: red;
+  font-size: 16px;
+`;
 
 export const Button_wrapper = styled.div`
-  margin-top: 35px;
   button {
     padding: 13px 25px;
   }
